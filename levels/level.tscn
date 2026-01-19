@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cno6ehya76oiu"]
+[gd_scene load_steps=10 format=3 uid="uid://cno6ehya76oiu"]
 
 [ext_resource type="Texture2D" uid="uid://c328htmqlrs3s" path="res://icon.svg" id="1_80vhd"]
 [ext_resource type="PackedScene" uid="uid://c3opu3olgppw1" path="res://Player/player.tscn" id="2_hjsbj"]
+[ext_resource type="PackedScene" path="res://enemy.tscn" id="3_enemy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hjsbj"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -42,6 +43,10 @@ mesh = SubResource("BoxMesh_80vhd")
 
 [node name="Player" parent="." instance=ExtResource("2_hjsbj")]
 transform = Transform3D(1, 0, 0, 0, 0.99934804, -0.036103014, 0, 0.036103014, 0.99934804, 0, 0.99446034, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("3_enemy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+target_path = NodePath("../Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 6.0556283, 0)
